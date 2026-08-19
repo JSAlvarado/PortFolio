@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Johnstheward S. Alvarado — Computer Engineer</title>
+<meta name="description" content="Portfolio of Johnstheward S. Alvarado, Computer Engineer specializing in networking, field technical support, and hardware.">
+
+<!-- Fonts: JetBrains Mono for schematic/technical labels, IBM Plex Sans for body copy -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================= -->
+<!-- NAV — edit the links/labels here                -->
+<!-- ============================================= -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">JA<span class="nav-logo-dot">.</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about" data-nav>ABOUT</a>
+      <a href="#experience" data-nav>EXPERIENCE</a>
+      <a href="#project" data-nav>PROJECT</a>
+      <a href="#skills" data-nav>SKILLS</a>
+      <a href="#education" data-nav>EDUCATION</a>
+      <a href="#contact" data-nav>CONTACT</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- The glowing trace line that runs down the page connecting each section -->
+<div class="trace-line" aria-hidden="true">
+  <div class="trace-pulse" id="tracePulse"></div>
+</div>
+
+<main id="top">
+
+  <!-- ============================================= -->
+  <!-- HERO — edit name / role / tagline here          -->
+  <!-- ============================================= -->
+  <section class="hero" id="hero">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="eyebrow">// SYSTEM STATUS: <span class="status-live">AVAILABLE FOR HIRE</span></p>
+      <h1 class="hero-name">JOHNSTHEWARD<br>S. ALVARADO</h1>
+      <p class="hero-role">Computer Engineer — Networks, Hardware &amp; Field Support</p>
+      <p class="hero-tagline">I diagnose systems, wire connections, and troubleshoot problems —
+        whether that's a cell site, a classroom network, or a customer's question.</p>
+
+      <div class="signal-meter" aria-hidden="true">
+        <span class="bar" style="--i:0"></span>
+        <span class="bar" style="--i:1"></span>
+        <span class="bar" style="--i:2"></span>
+        <span class="bar" style="--i:3"></span>
+        <span class="bar" style="--i:4"></span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+        <a href="#experience" class="btn btn-ghost">View experience ↓</a>
+      </div>
+
+      <div class="hero-meta">
+        <span>DAVAO CITY, PH</span>
+        <span class="dot">·</span>
+        <span>BS COMPUTER ENGINEERING</span>
+        <span class="dot">·</span>
+        <span>ICpEP MEMBER</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- ABOUT — edit the summary paragraph here         -->
+  <!-- ============================================= -->
+  <section class="section" id="about">
+    <p class="section-tag">01 // ABOUT</p>
+    <h2 class="section-title">Profile</h2>
+    <p class="about-text">
+      Motivated Computer Engineering professional with hands-on experience in technical support,
+      data management, and field operations. Currently expanding into customer-facing roles
+      bringing strong communication, problem-solving, and troubleshooting skills from real network
+      and hardware environments into every interaction. Comfortable working under deadlines,
+      following procedures precisely, and translating technical detail into clear answers.
+    </p>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- EXPERIENCE — duplicate a .node block to add a new job -->
+  <!-- ============================================= -->
+  <section class="section" id="experience">
+    <p class="section-tag">02 // EXPERIENCE</p>
+    <h2 class="section-title">Work Log</h2>
+
+    <div class="timeline">
+
+      <div class="node">
+        <div class="node-dot"></div>
+        <div class="node-body">
+          <div class="node-head">
+            <h3>Smart Wireless Engineering Educational Program Participant</h3>
+            <span class="node-date">2026</span>
+          </div>
+          <p class="node-org">Smart Communications Inc. · Davao, Philippines</p>
+          <ul class="node-list">
+            <li>Performed accurate data entry and analysis using Excel, Ookla Insights, and Cell Mapper to support network performance monitoring.</li>
+            <li>Assisted in cell site installation activities, applying technical knowledge and safety protocols in field environments.</li>
+            <li>Developed web-based HTML content and AI prompts to improve internal documentation and operational efficiency.</li>
+            <li>Collaborated with engineering teams, demonstrating attention to detail and the ability to follow procedures under deadlines.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="node">
+        <div class="node-dot"></div>
+        <div class="node-body">
+          <div class="node-head">
+            <h3>Network Technician / Field Technician</h3>
+            <span class="node-date">2024</span>
+          </div>
+          <p class="node-org">Anawim Elementary School Inc. · Davao City, Philippines</p>
+          <ul class="node-list">
+            <li>Installed and configured wired Wi-Fi access points, ensuring reliable network connectivity for school operations.</li>
+            <li>Performed CCTV camera installation and basic troubleshooting, providing on-site technical support to staff.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="node">
+        <div class="node-dot"></div>
+        <div class="node-body">
+          <div class="node-head">
+            <h3>Data Entry Clerk &amp; Sales Inventory Clerk</h3>
+            <span class="node-date">2023</span>
+          </div>
+          <p class="node-org">Various Assignments · Davao City, Philippines</p>
+          <ul class="node-list">
+            <li>Maintained accurate digital records and inventory data using Microsoft Excel, ensuring data integrity and timely updates.</li>
+            <li>Supported sales operations through precise inventory tracking and administrative coordination.</li>
+            <li>Demonstrated reliability, organizational skills, and the ability to manage multiple tasks efficiently.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- KEY PROJECT — edit project details here         -->
+  <!-- ============================================= -->
+  <section class="section" id="project">
+    <p class="section-tag">03 // KEY PROJECT</p>
+    <h2 class="section-title">Case File</h2>
+
+    <div class="project-card">
+      <div class="project-visual" aria-hidden="true">
+        <svg viewBox="0 0 220 140" class="floatech-svg">
+          <!-- water -->
+          <path class="water" d="M0 100 Q 20 90 40 100 T 80 100 T 120 100 T 160 100 T 200 100 T 220 100" />
+          <path class="water water-2" d="M0 112 Q 20 104 40 112 T 80 112 T 120 112 T 160 112 T 200 112 T 220 112" />
+          <!-- floating unit -->
+          <circle class="buoy" cx="110" cy="86" r="16" />
+          <line class="antenna" x1="110" y1="70" x2="110" y2="46" />
+          <circle class="antenna-tip" cx="110" cy="44" r="3" />
+          <!-- signal pulses -->
+          <circle class="pulse-ring" cx="110" cy="44" r="8" />
+          <circle class="pulse-ring pulse-ring-2" cx="110" cy="44" r="8" />
+        </svg>
+      </div>
+      <div class="project-info">
+        <h3>FLOATech</h3>
+        <p class="project-sub">Arduino-Based Floating Unit for Tilapia Farms</p>
+        <p class="project-desc">
+          Developed an automated floating system with real-time water-parameter feedback
+          monitoring, automated feeding, and water aeration for Oreochromis niloticus
+          (Tilapia) farms — combining embedded hardware, sensors, and remote monitoring
+          into one working unit.
+        </p>
+        <div class="project-tags">
+          <span>Arduino</span>
+          <span>Sensors</span>
+          <span>Automation</span>
+          <span>Aquaculture Tech</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SKILLS — edit / add pins inside each row         -->
+  <!-- ============================================= -->
+  <section class="section" id="skills">
+    <p class="section-tag">04 // SKILLS</p>
+    <h2 class="section-title">Breadboard</h2>
+    <p class="skills-intro">Each row is a rail. Each pin is a skill.</p>
+
+    <div class="breadboard">
+
+      <div class="rail">
+        <span class="rail-label">CUSTOMER &amp; SOFT SKILLS</span>
+        <div class="pins">
+          <span class="pin">Problem-Solving</span>
+          <span class="pin">Clear Communication</span>
+          <span class="pin">Teamwork</span>
+          <span class="pin">Time Management</span>
+          <span class="pin">Adaptability</span>
+          <span class="pin">Professionalism</span>
+        </div>
+      </div>
+
+      <div class="rail">
+        <span class="rail-label">TECHNICAL SUPPORT</span>
+        <div class="pins">
+          <span class="pin">Hardware Troubleshooting</span>
+          <span class="pin">Basic Networking</span>
+          <span class="pin">Breadboarding</span>
+          <span class="pin">System Diagnostics</span>
+        </div>
+      </div>
+
+      <div class="rail">
+        <span class="rail-label">TOOLS &amp; SOFTWARE</span>
+        <div class="pins">
+          <span class="pin">Excel</span>
+          <span class="pin">Word</span>
+          <span class="pin">Data Entry</span>
+          <span class="pin">HTML</span>
+          <span class="pin">AI Prompting</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- EDUCATION + AWARDS — edit list items here       -->
+  <!-- ============================================= -->
+  <section class="section" id="education">
+    <p class="section-tag">05 // EDUCATION</p>
+    <h2 class="section-title">Components</h2>
+
+    <div class="edu-grid">
+      <div class="edu-card">
+        <span class="edu-year">2023 — 2026</span>
+        <h3>BS Computer Engineering</h3>
+        <p>Holy Cross of Davao College</p>
+        <p class="edu-note">Previously enrolled in BS Electronics Engineering (2022–2023)</p>
+      </div>
+      <div class="edu-card">
+        <span class="edu-year">2020 — 2022</span>
+        <h3>Senior High School</h3>
+        <p>Davao City National High School</p>
+      </div>
+      <div class="edu-card">
+        <span class="edu-year">2016 — 2020</span>
+        <h3>Junior High School</h3>
+        <p>Davao City National High School</p>
+      </div>
+    </div>
+
+    <div class="awards">
+      <h3 class="awards-title">Awards &amp; Certifications</h3>
+      <ul class="awards-list">
+        <li>Networking Competition Champion (2025)</li>
+        <li>Best Design Project — 2nd Place (2026)</li>
+        <li>Basic Computer Networking Workshop</li>
+        <li>Programming Workshops</li>
+        <li>Occupational Safety and Health Orientation</li>
+        <li>Member, Institute of Computer Engineers of the Philippines (ICpEP)</li>
+        <li>Participant, 16th CODEE Region XI Engineering Congress</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- CONTACT — edit phone / email / location here    -->
+  <!-- ============================================= -->
+  <section class="section" id="contact">
+    <p class="section-tag">06 // CONTACT</p>
+    <h2 class="section-title">Connect</h2>
+
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span>connect.sh</span>
+      </div>
+      <div class="terminal-body">
+        <p><span class="prompt">&gt;</span> Who am I?</p>
+        <p class="output">Johnstheward S. Alvarado — Computer Engineer</p>
+
+        <p><span class="prompt">&gt;</span> location</p>
+        <p class="output">Block 2 Carmelite Road, Bajada, Buhangin Proper, Davao City, Davao del Sur 8000</p>
+
+        <p><span class="prompt">&gt;</span> contact</p>
+        <p class="output">
+          <a href="mailto:johnalvarado.565655@gmail.com" id="emailLink">johnalvarado.565655@gmail.com</a>
+          <button class="copy-btn" id="copyBtn" type="button">copy</button>
+        </p>
+        <p class="output"><a href="tel:+639120115350">+63 912 011 5350 / +63 915 612 3098</a></p>
+
+        <p><span class="prompt">&gt;</span> <span class="cursor" id="cursor">_</span></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Built with HTML, CSS &amp; JS · © <span id="year"></span> Johnstheward S. Alvarado</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
