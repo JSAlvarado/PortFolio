@@ -2,16 +2,16 @@
    DESIGN TOKENS — change these to re-theme the whole site
    ===================================================== */
 :root {
-  --bg:          #0E2436;
-  --bg-deep:     #0A1B29;
-  --panel:       #15334A;
-  --panel-2:     #1B3D57;
-  --line:        #2C4F6B;
+  --bg:          #060E16;
+  --bg-deep:     #030709;
+  --panel:       #0D1B27;
+  --panel-2:     #122535;
+  --line:        #1C3143;
   --accent:      #6FE8D9;
-  --accent-dim:  #3E7E78;
+  --accent-dim:  #2E5F5A;
   --warm:        #FFB454;
   --text:        #EAF3F8;
-  --text-muted:  #8FADC4;
+  --text-muted:  #7C97AC;
 
   --font-display: 'JetBrains Mono', 'Courier New', monospace;
   --font-body:    'IBM Plex Sans', -apple-system, sans-serif;
@@ -59,7 +59,7 @@ a { color: inherit; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10, 27, 41, 0.85);
+  background: rgba(3, 7, 9, 0.85);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
@@ -402,43 +402,113 @@ a { color: inherit; }
 .node-list li { margin-bottom: 8px; }
 .node-list li:last-child { margin-bottom: 0; }
 
+/* -- Logos + photos embedded inside experience nodes -- */
+.node-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 4px 0 16px;
+}
+
+.logo-chip {
+  display: inline-flex;
+  align-items: center;
+  background: #FFFFFF;
+  border-radius: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+}
+.logo-chip img {
+  height: 22px;
+  width: auto;
+  display: block;
+}
+
+.inline-logo {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  vertical-align: -4px;
+  margin-right: 6px;
+  background: #fff;
+}
+
+.node-photo {
+  margin: 18px 0 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-deep);
+  max-width: 360px;
+}
+.node-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.node-photo figcaption {
+  padding: 10px 14px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  border-top: 1px solid var(--line);
+}
+
 /* =====================================================
    PROJECT
    ===================================================== */
 .project-card {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 32px;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 32px;
-  align-items: center;
+  padding: 20px;
 }
 
-@media (max-width: 700px) {
-  .project-card { grid-template-columns: 1fr; }
+.project-visual {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 28px;
 }
 
-.floatech-svg { width: 100%; height: auto; }
-.water { fill: none; stroke: var(--accent-dim); stroke-width: 2; }
-.water-2 { stroke: var(--line); }
-.buoy { fill: var(--panel-2); stroke: var(--accent); stroke-width: 2; }
-.antenna { stroke: var(--accent); stroke-width: 2; }
-.antenna-tip { fill: var(--warm); }
-.pulse-ring {
-  fill: none;
-  stroke: var(--warm);
-  stroke-width: 1.5;
+.project-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;
+  object-fit: cover;
+}
+
+.signal-dot {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 10px;
+  height: 10px;
+}
+.signal-dot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--warm);
+  box-shadow: 0 0 10px 2px var(--warm);
+}
+.signal-dot-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid var(--warm);
   opacity: 0;
-  transform-origin: 110px 44px;
   animation: pulseRing 2.6s ease-out infinite;
 }
-.pulse-ring-2 { animation-delay: 1.3s; }
+.signal-dot-ring-2 { animation-delay: 1.3s; }
 @keyframes pulseRing {
   0% { opacity: 0.7; transform: scale(1); }
-  100% { opacity: 0; transform: scale(2.6); }
+  100% { opacity: 0; transform: scale(2.8); }
 }
+
+.project-info { padding: 0 12px 12px; }
 
 .project-info h3 {
   font-family: var(--font-display);
