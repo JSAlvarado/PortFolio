@@ -1,534 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Johnstheward S. Alvarado — Computer Engineer</title>
-<meta name="description" content="Portfolio of Johnstheward S. Alvarado, Computer Engineer specializing in networking, field technical support, and hardware.">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Johnstheward S. Alvarado | Computer Engineering, Networks &amp; Field Support</title>
+  <meta name="description" content="Johnstheward S. Alvarado, Computer Engineering from Davao City. Cell site field work with Smart’s SWEEP program, school Wi-Fi and CCTV installation, and an award-winning Arduino aquaculture project.">
+  <meta name="theme-color" content="#F2F4F3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0F161C" media="(prefers-color-scheme: dark)">
 
-<style>
-:root {
-  --bg: #0a0f14; --panel: #111922; --line: #1f2d3a;
-  --text: #d8e2ea; --muted: #8497a8; --accent: #00e5a0; --accent2: #3aa0ff;
-  --mono: "JetBrains Mono", monospace; --sans: "IBM Plex Sans", sans-serif;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
-main { flex: 1; }
-a { color: var(--accent); text-decoration: none; }
-img { max-width: 100%; display: block; }
+  <!-- Link previews (Messenger, LinkedIn, Viber) -->
+  <meta property="og:title" content="Johnstheward S. Alvarado | Computer Engineering">
+  <meta property="og:description" content="Networks, hardware and field technical support. Davao City, Philippines.">
+  <meta property="og:image" content="images/sweep-cell-site.jpg">
+  <meta property="og:type" content="website">
 
-/* PAGE SWITCHING */
-.page { display: none; }
-.page.active { display: block; animation: fadeUp .5s ease; }
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2314212B'/><text x='16' y='22' font-family='Arial' font-weight='700' font-size='14' fill='%23F4B400' text-anchor='middle'>JA</text></svg>">
 
-/* NAV */
-.nav { position: sticky; top: 0; z-index: 10; background: rgba(10,15,20,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-.nav-inner { max-width: 1100px; margin: auto; padding: .9rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
-.nav-logo { font-family: var(--mono); font-weight: 800; font-size: 1.3rem; color: var(--text); }
-.nav-logo-dot { color: var(--accent); }
-.nav-links { display: flex; gap: 1.6rem; }
-.nav-links a { font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; color: var(--muted); padding: .3rem 0; border-bottom: 2px solid transparent; transition: .2s; }
-.nav-links a:hover, .nav-links a.active { color: var(--accent); border-color: var(--accent); }
-.nav-toggle { display: none; background: none; border: 0; cursor: pointer; flex-direction: column; gap: 5px; }
-.nav-toggle span { width: 24px; height: 2px; background: var(--text); }
-
-/* HERO */
-.hero { position: relative; min-height: calc(100vh - 120px); display: flex; align-items: center; overflow: hidden; }
-.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 44px 44px; opacity: .35; mask-image: radial-gradient(circle at 30% 50%, #000, transparent 75%); -webkit-mask-image: radial-gradient(circle at 30% 50%, #000, transparent 75%); }
-.hero-content { position: relative; max-width: 1100px; margin: auto; padding: 3rem 1.5rem; width: 100%; }
-.eyebrow { font-family: var(--mono); font-size: .8rem; color: var(--muted); margin-bottom: 1rem; }
-.status-live { color: var(--accent); }
-.status-live::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 50%; background: var(--accent); animation: pulse 1.6s infinite; }
-.hero-name { font-family: var(--mono); font-weight: 800; font-size: clamp(2.2rem, 7vw, 4.6rem); line-height: 1.05; letter-spacing: -.02em; }
-.hero-role { font-family: var(--mono); color: var(--accent2); margin: 1.2rem 0 .6rem; }
-.hero-tagline { max-width: 560px; color: var(--muted); }
-.signal-meter { display: flex; align-items: flex-end; gap: 4px; height: 28px; margin: 1.6rem 0; }
-.bar { width: 6px; background: var(--accent); border-radius: 2px; height: calc(var(--i) * 5px + 8px); animation: signal 1.4s ease-in-out infinite; animation-delay: calc(var(--i) * .15s); }
-.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-.btn { font-family: var(--mono); font-size: .85rem; padding: .75rem 1.4rem; border-radius: 6px; border: 1px solid var(--accent); transition: .2s; display: inline-block; }
-.btn-primary { background: var(--accent); color: #04110b; font-weight: 700; }
-.btn-primary:hover { box-shadow: 0 0 18px rgba(0,229,160,.5); }
-.btn-ghost { color: var(--accent); }
-.btn-ghost:hover { background: rgba(0,229,160,.1); }
-.hero-meta { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2rem; font-family: var(--mono); font-size: .72rem; color: var(--muted); }
-
-/* SECTIONS */
-.section { max-width: 1100px; margin: auto; padding: 3.5rem 1.5rem 4rem; }
-.section-tag { font-family: var(--mono); font-size: .8rem; color: var(--accent); }
-.section-title { font-family: var(--mono); font-size: 2rem; margin: .3rem 0 2rem; }
-.about-text { max-width: 760px; font-size: 1.1rem; color: var(--muted); }
-
-/* ABOUT: core skills */
-.about-skills-title { font-family: var(--mono); font-size: 1.1rem; margin: 2.5rem 0 1rem; }
-
-/* TIMELINE */
-.timeline { position: relative; padding-left: 2rem; border-left: 2px solid var(--line); }
-.node { position: relative; margin-bottom: 2.2rem; }
-.node-dot { position: absolute; left: -2.6rem; top: .35rem; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); box-shadow: 0 0 10px var(--accent); }
-.node-body { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 1.4rem; }
-.node-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-.node-head h3 { font-size: 1.1rem; }
-.node-date { font-family: var(--mono); color: var(--accent); font-size: .85rem; }
-.node-org { color: var(--muted); margin: .3rem 0 .8rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
-.inline-logo { height: 26px; width: auto; }
-.node-logos { display: flex; gap: .6rem; margin-bottom: .8rem; }
-.logo-chip { background: #fff; border-radius: 6px; padding: .3rem .6rem; }
-.logo-chip img { height: 30px; width: auto; }
-.node-list { padding-left: 1.2rem; color: var(--muted); }
-.node-list li { margin-bottom: .4rem; }
-.node-photo { margin-top: 1rem; }
-.node-photo img { border-radius: 8px; max-height: 420px; object-fit: cover; }
-.node-photo figcaption { font-size: .8rem; color: var(--muted); margin-top: .4rem; }
-
-/* SWEEP gallery */
-.node-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.2rem; }
-.node-gallery figure { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-.node-gallery img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center; }
-.node-gallery figcaption { padding: .8rem 1rem 1rem; }
-.node-gallery figcaption p { font-size: .85rem; color: var(--muted); margin-top: .3rem; }
-
-/* PROJECT */
-.project-card { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
-.project-photo { width: 100%; height: 100%; object-fit: cover; }
-.project-info { padding: 1.6rem; }
-.project-info h3 { font-family: var(--mono); font-size: 1.6rem; color: var(--accent); }
-.project-sub { color: var(--accent2); font-family: var(--mono); font-size: .85rem; margin: .3rem 0 1rem; }
-.project-desc { color: var(--muted); }
-.project-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.2rem; }
-.project-tags span { font-family: var(--mono); font-size: .72rem; border: 1px solid var(--line); padding: .25rem .6rem; border-radius: 20px; }
-.project-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem; }
-.gallery-item { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
-.gallery-item img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center top; }
-.gallery-item figcaption { padding: 1rem 1.25rem 1.25rem; }
-.gallery-label { font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; color: var(--accent); }
-.gallery-item h4 { margin: .35rem 0 .5rem; font-size: 1.05rem; }
-.gallery-item p { font-size: .92rem; color: var(--muted); }
-
-/* FLOATech recognitions */
-.recog-title { font-family: var(--mono); font-size: 1.3rem; margin: 3rem 0 .3rem; }
-.recog-intro { color: var(--muted); max-width: 720px; margin-bottom: 1.5rem; }
-.recog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-.recog-grid .gallery-item img { aspect-ratio: 4/3; object-position: center; }
-.recog-grid .recog-feature { grid-column: 1 / -1; }
-
-/* CORE SKILLS (breadboard) */
-.breadboard { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 1.5rem; max-width: 900px; }
-.rail { padding: 1rem 0; border-bottom: 1px dashed var(--line); }
-.rail:first-child { padding-top: 0; }
-.rail:last-child { border: 0; padding-bottom: 0; }
-.rail-label { font-family: var(--mono); font-size: .75rem; color: var(--accent); letter-spacing: .08em; }
-.pins { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .8rem; }
-.pin { font-family: var(--mono); font-size: .82rem; padding: .4rem .9rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); transition: .2s; }
-.pin:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-
-/* EDUCATION */
-.edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
-.edu-card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 1.4rem; }
-.edu-year { font-family: var(--mono); font-size: .8rem; color: var(--accent); }
-.edu-card h3 { margin: .4rem 0; }
-.edu-card p { color: var(--muted); }
-.edu-note { font-size: .85rem; margin-top: .5rem; }
-.awards { margin-top: 2.5rem; }
-.awards-title { font-family: var(--mono); margin-bottom: 1rem; }
-.awards-list { list-style: none; display: grid; gap: .6rem; }
-.awards-list li { background: var(--panel); border-left: 3px solid var(--accent); padding: .7rem 1rem; border-radius: 4px; }
-
-/* CONTACT */
-.terminal { max-width: 720px; background: #060a0e; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; font-family: var(--mono); }
-.terminal-bar { background: var(--panel); padding: .6rem 1rem; font-size: .8rem; color: var(--muted); }
-.terminal-body { padding: 1.4rem; font-size: .92rem; }
-.terminal-body p { margin-bottom: .4rem; }
-.prompt { color: var(--accent); }
-.output { color: var(--text); margin: 0 0 1rem 1.2rem !important; }
-.copy-btn { font-family: var(--mono); font-size: .7rem; margin-left: .6rem; padding: .15rem .6rem; background: none; color: var(--accent); border: 1px solid var(--accent); border-radius: 4px; cursor: pointer; }
-.copy-btn:hover { background: rgba(0,229,160,.15); }
-.cursor { animation: blink 1s steps(1) infinite; color: var(--accent); }
-
-.footer { text-align: center; padding: 1.5rem; border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); font-family: var(--mono); }
-
-@keyframes pulse { 50% { opacity: .3; } }
-@keyframes blink { 50% { opacity: 0; } }
-@keyframes signal { 50% { transform: scaleY(.45); } }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-
-@media (max-width: 800px) {
-  .nav-toggle { display: flex; }
-  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line); padding: .5rem 1.5rem 1rem; }
-  .nav-links.open { display: flex; }
-  .nav-links a { padding: .7rem 0; }
-  .project-card, .project-gallery { grid-template-columns: 1fr; }
-  .recog-grid { grid-template-columns: 1fr; }
-  .node-gallery { grid-template-columns: 1fr; }
-  .node-dot { left: -2.5rem; }
-}
-</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- NAV -->
+<a class="skip-link" href="#main">Skip to content</a>
+
 <header class="nav">
   <div class="nav-inner">
-    <a href="#home" class="nav-logo">JA<span class="nav-logo-dot">.</span></a>
-    <nav class="nav-links" id="navLinks">
-      <a href="#home">HOME</a>
-      <a href="#about">ABOUT</a>
-      <a href="#experience">EXPERIENCE</a>
-      <a href="#project">PROJECT</a>
-      <a href="#education">EDUCATION</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <a href="#top" class="nav-logo" aria-label="Back to top">J. Alvarado</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="#experience">Experience</a>
+      <a href="#project">Project</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
   </div>
 </header>
 
-<main>
+<main id="main">
 
-  <!-- ============ HOME ============ -->
-  <div class="page" id="home">
-    <section class="hero">
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-content">
-        <p class="eyebrow">// SYSTEM STATUS: <span class="status-live">AVAILABLE FOR HIRE</span></p>
-        <h1 class="hero-name">JOHNSTHEWARD<br>S.ALVARADO</h1>
-        <p class="hero-role">Computer Engineer — Networks, Hardware &amp; Field Support</p>
-        <p class="hero-tagline">I diagnose systems, wire connections, and troubleshoot problems — whether that's a cell site, a classroom network, or a customer's question.</p>
-        <div class="signal-meter" aria-hidden="true">
-          <span class="bar" style="--i:0"></span><span class="bar" style="--i:1"></span><span class="bar" style="--i:2"></span><span class="bar" style="--i:3"></span><span class="bar" style="--i:4"></span>
-        </div>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Get in touch</a>
-          <a href="#experience" class="btn btn-ghost">View experience →</a>
-        </div>
-        <div class="hero-meta">
-          <span>DAVAO CITY, PH</span><span>·</span><span>BS COMPUTER ENGINEERING</span><span>·</span><span>ICpEP MEMBER</span>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ============ ABOUT (now includes core skills) ============ -->
-  <div class="page" id="about">
-    <section class="section">
-      <p class="section-tag">01 // ABOUT</p>
-      <h2 class="section-title">Profile</h2>
-      <p class="about-text">
-        Motivated Computer Engineering professional with hands-on experience in technical support,
-        data management, and field operations. Currently expanding into customer-facing roles —
-        bringing strong communication, problem-solving, and troubleshooting skills from real network
-        and hardware environments into every interaction. Comfortable working under deadlines,
-        following procedures precisely, and translating technical detail into clear answers.
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <div class="hero-text">
+      <p class="hero-status"><span class="status-dot" aria-hidden="true"></span>Available for work in Davao City and nearby</p>
+      <h1 class="hero-name">Johnstheward S.&nbsp;Alvarado</h1>
+      <p class="hero-role">Computer Engineering: networks, hardware and field technical support</p>
+      <p class="hero-summary">
+        I install, test and troubleshoot the hardware that keeps people connected, from cell site radio units
+        with Smart Communications to Wi-Fi and CCTV for a school campus. I follow procedures closely, work
+        safely on site, and explain technical problems in plain language.
       </p>
-
-      <h3 class="about-skills-title">// Core Skills</h3>
-      <div class="breadboard">
-        <div class="rail">
-          <span class="rail-label">TECHNICAL</span>
-          <div class="pins">
-            <span class="pin">Hardware Troubleshooting</span>
-            <span class="pin">Basic Networking</span>
-            <span class="pin">Wi-Fi &amp; CCTV Setup</span>
-            <span class="pin">Arduino & ESP32 Development</span>
-          </div>
-        </div>
-        <div class="rail">
-          <span class="rail-label">TOOLS</span>
-          <div class="pins">
-            <span class="pin">Excel</span>
-            <span class="pin">Ookla Insights</span>
-            <span class="pin">Cell Mapper</span>
-            <span class="pin">HTML</span>
-            <span class="pin">AI Prompting</span>
-          </div>
-        </div>
-          </div>
-        </div>
+      <div class="hero-actions">
+        <a href="mailto:johnalvarado.565655@gmail.com" class="btn btn-primary">Email me</a>
+        <a href="resume.pdf" class="btn btn-secondary" id="cvLink" download>Download CV (PDF)</a>
+        <a href="#experience" class="btn btn-text">See my experience</a>
       </div>
-    </section>
-  </div>
 
-  <!-- ============ EXPERIENCE ============ -->
-  <div class="page" id="experience">
-    <section class="section">
-      <p class="section-tag">02 // EXPERIENCE</p>
-      <h2 class="section-title">Work Log</h2>
-      <div class="timeline">
+      <dl class="facts">
+        <div><dt>Based in</dt><dd>Davao City, Philippines</dd></div>
+        <div><dt>Degree</dt><dd>BS Computer Engineering, Holy Cross of Davao College</dd></div>
+        <div><dt>Field experience</dt><dd>Cell site installation, Wi-Fi access points, CCTV</dd></div>
+        <div><dt>Looking for</dt><dd>Network technician, field engineer or technical support roles</dd></div>
+      </dl>
+    </div>
 
-        <div class="node">
-          <div class="node-dot"></div>
-          <div class="node-body">
-            <div class="node-head">
-              <h3>Smart Wireless Engineering Educational Program Participant</h3>
-              <span class="node-date">2026</span>
-            </div>
-            <p class="node-org">Smart Communications Inc. · Davao, Philippines</p>
-            <div class="node-logos">
-              <span class="logo-chip"><img src="images/smart-logo.png" alt="Smart Communications Inc. logo"></span>
-              <span class="logo-chip"><img src="images/sweep-logo.png" alt="SWEEP logo"></span>
-            </div>
-            <ul class="node-list">
-              <li>Performed accurate data entry and analysis using Excel, Ookla Insights, and Cell Mapper to support network performance monitoring.</li>
-              <li>Assisted in cell site installation activities, applying technical knowledge and safety protocols in field environments.</li>
-              <li>Developed web-based HTML content and AI prompts to improve internal documentation and operational efficiency.</li>
-              <li>Collaborated with engineering teams, demonstrating attention to detail and the ability to follow procedures under deadlines.</li>
-            </ul>
-            <figure class="node-photo">
-              <img src="images/smart-team-photo.jpeg" alt="Johnstheward Alvarado receiving his SWEEP Certificate of Completion at Smart Communications Inc.">
-              <figcaption>Receiving the SWEEP Certificate of Completion, Smart Communications Inc.</figcaption>
+    <figure class="hero-photo">
+      <a href="images/sweep-cell-site.jpg" class="zoom">
+        <img src="images/sweep-cell-site.jpg" width="1153" height="2048"
+             alt="Johnstheward in a white hard hat connecting cables to a cell site radio unit mounted on a pole.">
+      </a>
+      <figcaption><span class="tag">Field work</span> Terminating cables on an outdoor radio unit, Smart SWEEP 2026</figcaption>
+    </figure>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section class="section" id="experience" aria-labelledby="experience-title">
+    <h2 class="section-title" id="experience-title">Experience</h2>
+
+    <ol class="timeline">
+
+      <li class="job">
+        <p class="job-date"><time datetime="2026">2026</time></p>
+        <div class="job-body">
+          <h3 class="job-title">Wireless Engineering Trainee</h3>
+          <p class="job-org">Smart Communications, Inc. · Smart Wireless Engineering Education Program (SWEEP) · Davao</p>
+          <div class="job-logos">
+            <img src="images/smart-logo.png" alt="Smart Communications" width="400" height="282" loading="lazy">
+            <img src="images/sweep-logo.png" alt="SWEEP, Smart Wireless Engineering Education Program" width="500" height="217" loading="lazy">
+          </div>
+          <ul class="job-list">
+            <li>Assisted engineers with cell site installation, connecting and terminating feeder and grounding cables on outdoor radio units while following site safety protocols.</li>
+            <li>Recorded and analyzed network performance data in Excel, Ookla Insights and CellMapper to support network monitoring.</li>
+            <li>Checked rack and board status in network equipment management software to confirm hardware was active and running normally.</li>
+            <li>Built HTML pages and AI prompts that made the team’s internal documentation faster to produce and easier to use.</li>
+            <li>Completed the program and received a Certificate of Completion from Smart Communications.</li>
+          </ul>
+
+          <div class="job-gallery">
+            <figure>
+              <a href="images/smart-team-photo.jpeg" class="zoom">
+                <img src="images/smart-team-photo.jpeg" width="746" height="725" loading="lazy"
+                     alt="Johnstheward holding his SWEEP Certificate of Completion with Smart engineers.">
+              </a>
+              <figcaption>Receiving the SWEEP Certificate of Completion</figcaption>
             </figure>
-
-            <div class="node-gallery">
-              <figure>
-                <img src="images/sweep-cell-site.jpg" alt="Johnstheward in a white hard hat connecting cables on a cell site radio unit mounted on a pole.">
-                <figcaption>
-                  <span class="gallery-label">// FIELD INSTALLATION</span>
-                  <p>Hands-on cell site work: connecting and terminating cables on an outdoor radio unit, with labeled feeders and grounding cables.</p>
-                </figcaption>
-              </figure>
-
-              <figure>
-                <img src="images/sweep-site-visit.jpg" alt="Johnstheward standing outside a site shelter beside a service truck loaded with equipment and tool cases.">
-                <figcaption>
-                  <span class="gallery-label">// SITE VISIT</span>
-                  <p>On-site deployment with the engineering team: the service truck carries tool cases, batteries, and equipment, unloaded at the site shelter before work begins.</p>
-                </figcaption>
-              </figure>
-
-              <figure>
-                <img src="images/sweep-monitoring.jpg" alt="Team members at a table with laptops, one showing a network device management screen with rack and board status.">
-                <figcaption>
-                  <span class="gallery-label">// NETWORK MONITORING</span>
-                  <p>Working with the team on network equipment management software, reviewing rack and board status to check that hardware is active and running normally.</p>
-                </figcaption>
-              </figure>
-            </div>
+            <figure>
+              <a href="images/sweep-monitoring.jpg" class="zoom">
+                <img src="images/sweep-monitoring.jpg" width="2033" height="2048" loading="lazy"
+                     alt="Team members at a table with laptops, one showing a network device management screen with rack and board status.">
+              </a>
+              <figcaption>Reviewing rack and board status in equipment management software</figcaption>
+            </figure>
+            <figure>
+              <a href="images/sweep-site-visit.jpg" class="zoom">
+                <img src="images/sweep-site-visit.jpg" width="3072" height="4096" loading="lazy"
+                     alt="Johnstheward outside a site shelter beside a service truck loaded with tool cases and equipment.">
+              </a>
+              <figcaption>Site visit with the engineering team and service truck</figcaption>
+            </figure>
           </div>
         </div>
+      </li>
 
-        <div class="node">
-          <div class="node-dot"></div>
-          <div class="node-body">
-            <div class="node-head">
-              <h3>Network Technician / Field Technician</h3>
-              <span class="node-date">2024</span>
-            </div>
-            <p class="node-org">
-              <img src="images/anawim-logo.png" alt="Anawim Elementary School logo" class="inline-logo">
-              Anawim Elementary School Inc. · Davao City, Philippines
-            </p>
-            <ul class="node-list">
-              <li>Installed and configured wired Wi-Fi access points, ensuring reliable network connectivity for school operations.</li>
-              <li>Performed CCTV camera installation and basic troubleshooting, providing on-site technical support to staff.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="node">
-          <div class="node-dot"></div>
-          <div class="node-body">
-            <div class="node-head">
-              <h3>Data Entry Clerk &amp; Sales Inventory Clerk</h3>
-              <span class="node-date">2023</span>
-            </div>
-            <p class="node-org">Various Assignments · Davao City, Philippines</p>
-            <ul class="node-list">
-              <li>Maintained accurate digital records and inventory data using Microsoft Excel, ensuring data integrity and timely updates.</li>
-              <li>Supported sales operations through precise inventory tracking and administrative coordination.</li>
-              <li>Demonstrated reliability, organizational skills, and the ability to manage multiple tasks efficiently.</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </div>
-
-  <!-- ============ PROJECT ============ -->
-  <div class="page" id="project">
-    <section class="section">
-      <p class="section-tag">03 // KEY PROJECT</p>
-      <h2 class="section-title">Research Design</h2>
-
-      <div class="project-card">
-        <div class="project-visual">
-          <img src="images/floatech-photo.jpg" alt="The FLOATech floating unit deployed on a tilapia pond." class="project-photo">
-        </div>
-        <div class="project-info">
-          <h3>FLOATech</h3>
-          <p class="project-sub">Arduino-Based Floating Unit for Tilapia Farms</p>
-          <p class="project-desc">
-            Developed an automated floating system with real-time water-parameter feedback
-            monitoring, automated feeding, and water aeration for Oreochromis niloticus
-            (Tilapia) farms — combining embedded hardware, sensors, and remote monitoring
-            into one working unit.
+      <li class="job">
+        <p class="job-date"><time datetime="2024">2024</time></p>
+        <div class="job-body">
+          <h3 class="job-title">Network and CCTV Technician</h3>
+          <p class="job-org">
+            <img src="images/anawim-logo.png" alt="" class="org-icon" width="400" height="401" loading="lazy">
+            Anawim Elementary School, Inc. · Davao City
           </p>
-          <div class="project-tags">
-            <span>Arduino</span><span>Sensors</span><span>Automation</span><span>Aquaculture Tech</span>
-          </div>
+          <ul class="job-list">
+            <li>Installed and configured wired Wi-Fi access points to give the school reliable connectivity for daily operations.</li>
+            <li>Installed CCTV cameras across the campus and handled basic troubleshooting when problems came up.</li>
+            <li>Gave on-site technical support to teachers and staff.</li>
+          </ul>
         </div>
-      </div>
+      </li>
 
-      <div class="project-gallery">
-        <figure class="gallery-item">
-          <img src="images/floatech-build.jpg" alt="Johnstheward wiring the FLOATech control electronics at a workbench.">
-          <figcaption>
-            <span class="gallery-label">// BUILD PHASE</span>
-            <h4>Assembling the control system</h4>
-            <p>Wiring and testing the unit's electronics by hand: custom-soldered circuit boards, voltage regulator modules, an LCD display, and a keypad, all housed in weatherproof enclosures. A battery and solar charge controller keep the system running on solar power at the pond.</p>
-          </figcaption>
-        </figure>
-        <figure class="gallery-item">
-          <img src="images/floatech-team.jpg" alt="The four-person FLOATech research team beside the finished floating unit.">
-          <figcaption>
-            <span class="gallery-label">// FINAL UNIT</span>
-            <h4>The finished FLOATech prototype</h4>
-            <p>The completed floating unit with the research team: a solar panel and a sealed instrument box mounted on a pontoon frame of buoyant barrels, with sensor probes lowered into the water. Built and presented as a team design project.</p>
-          </figcaption>
-        </figure>
-      </div>
-
-      <!-- FLOATech RECOGNITIONS -->
-      <h3 class="recog-title">// FLOATech Recognitions</h3>
-      <p class="recog-intro">FLOATech was recognized twice in 2026 at Holy Cross of Davao College: once as a design project exhibit and once as a research paper presented at the CET Research Conference.</p>
-
-      <div class="recog-grid">
-        <figure class="gallery-item recog-feature">
-          <img src="images/floatech-conversazione.jpg" alt="The FLOATech team in formal uniforms on stage at Conversazione 2026, holding a certificate with faculty and officials.">
-          <figcaption>
-            <span class="gallery-label">// CONVERSAZIONE 2026</span>
-            <h4>Receiving the award on stage</h4>
-            <p>The FLOATech team accepting their certificate at the 2026 CET Research Conference, "Conversazione 2026: Uniting Ideas, Building Partnerships, Powering a Sustainable Future," together with faculty and guests.</p>
-          </figcaption>
-        </figure>
-
-        <figure class="gallery-item">
-          <img src="images/floatech-cert-technofair.jpg" alt="Certificate of Recognition naming FLOATech Second Runner Up in the Best Design Project Exhibit at TechnoFair 2026.">
-          <figcaption>
-            <span class="gallery-label">// TECHNOFAIR 2026</span>
-            <h4>Second Runner Up, Best Design Project Exhibit</h4>
-          </figcaption>
-        </figure>
-
-        <figure class="gallery-item">
-          <img src="images/floatech-cert-poster.jpg" alt="Certificate of Recognition for 2nd Best Research Poster at the 2026 CET Research Conference.">
-          <figcaption>
-            <span class="gallery-label">// CET RESEARCH CONFERENCE 2026</span>
-            <h4>2nd Best Research Poster</h4>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-  </div>
-
-  <!-- ============ EDUCATION ============ -->
-  <div class="page" id="education">
-    <section class="section">
-      <p class="section-tag">04 // EDUCATION</p>
-      <h2 class="section-title">Components</h2>
-      <div class="edu-grid">
-        <div class="edu-card">
-          <span class="edu-year">2023 — Present</span>
-          <h3>BS Computer Engineering</h3>
-          <p>Holy Cross of Davao College</p>
-          <p class="edu-note">Previously enrolled in BS Electronics Engineering (2022–2023)</p>
+      <li class="job">
+        <p class="job-date"><time datetime="2023">2023</time></p>
+        <div class="job-body">
+          <h3 class="job-title">Data Entry and Sales Inventory Clerk</h3>
+          <p class="job-org">Various assignments · Davao City</p>
+          <ul class="job-list">
+            <li>Kept digital records and inventory data accurate and up to date in Microsoft Excel.</li>
+            <li>Supported sales operations with inventory tracking and administrative coordination, often handling several tasks at once.</li>
+          </ul>
         </div>
-        <div class="edu-card">
-          <span class="edu-year">2020 — 2022</span>
-          <h3>Senior High School</h3>
-          <p>Davao City National High School</p>
-        </div>
-        <div class="edu-card">
-          <span class="edu-year">2016 — 2020</span>
-          <h3>Junior High School</h3>
-          <p>Davao City National High School</p>
-        </div>
+      </li>
+
+    </ol>
+  </section>
+
+  <!-- ================= PROJECT ================= -->
+  <section class="section" id="project" aria-labelledby="project-title">
+    <h2 class="section-title" id="project-title">Design project: FLOATech</h2>
+
+    <div class="project">
+      <a href="images/floatech-photo.jpg" class="zoom project-hero">
+        <img src="images/floatech-photo.jpg" width="1400" height="787" loading="lazy"
+             alt="The FLOATech floating unit deployed on a tilapia pond: a blue instrument box and solar panel on a frame of floating barrels.">
+      </a>
+
+      <div class="project-text">
+        <p class="project-sub">Arduino-based floating unit for tilapia farms</p>
+        <p>
+          A solar-powered unit that floats on a fish pond and looks after it automatically. It monitors water
+          parameters in real time, feeds the fish on schedule and runs aeration, so farmers of
+          <i>Oreochromis niloticus</i> (Nile tilapia) spend less time checking the pond by hand.
+        </p>
+        <p>Built and tested on a real pond by a four-person team at Holy Cross of Davao College, 2026.</p>
+
+        <h3 class="mini-title">What went into it</h3>
+        <ul class="check-list">
+          <li>Water-parameter sensors with real-time feedback monitoring</li>
+          <li>Automated feeder and water aeration</li>
+          <li>Arduino control with custom-soldered circuit boards, voltage regulators, LCD and keypad</li>
+          <li>Solar panel, charge controller and battery for off-grid power</li>
+          <li>Weatherproof enclosures on a pontoon frame of buoyant barrels</li>
+        </ul>
       </div>
-      <div class="awards">
-        <h3 class="awards-title">Awards &amp; Certifications</h3>
-        <ul class="awards-list">
-          <li>Networking Competition Champion (2025)</li>
-          <li>Best Design Project — 2nd Place (2026)</li>
-          <li>Basic Computer Networking Workshop</li>
-          <li>Programming Workshops</li>
+    </div>
+
+    <div class="awards-row">
+      <div class="award">
+        <p class="award-place">Second Runner Up</p>
+        <p class="award-name">Best Design Project Exhibit, TechnoFair 2026</p>
+        <p class="award-meta">Holy Cross of Davao College, March 2026</p>
+      </div>
+      <div class="award">
+        <p class="award-place">2nd Best Research Poster</p>
+        <p class="award-name">CET Research Conference, Conversazione 2026</p>
+        <p class="award-meta">Holy Cross of Davao College, May 2026</p>
+      </div>
+    </div>
+
+    <div class="photo-grid">
+      <figure>
+        <a href="images/floatech-build.jpg" class="zoom">
+          <img src="images/floatech-build.jpg" width="1542" height="2048" loading="lazy"
+               alt="Johnstheward wiring the FLOATech control electronics at a workbench.">
+        </a>
+        <figcaption>Wiring and testing the control electronics</figcaption>
+      </figure>
+      <figure>
+        <a href="images/floatech-team.jpg" class="zoom">
+          <img src="images/floatech-team.jpg" width="1200" height="1600" loading="lazy"
+               alt="The four-person FLOATech research team standing beside the finished floating unit.">
+        </a>
+        <figcaption>The team with the finished prototype</figcaption>
+      </figure>
+      <figure class="wide">
+        <a href="images/floatech-conversazione.jpg" class="zoom">
+          <img src="images/floatech-conversazione.jpg" width="1600" height="1199" loading="lazy"
+               alt="The FLOATech team on stage at Conversazione 2026, holding a certificate with faculty and officials.">
+        </a>
+        <figcaption>Accepting the research poster award at Conversazione 2026</figcaption>
+      </figure>
+      <figure class="cert">
+        <a href="images/floatech-cert-technofair.jpg" class="zoom">
+          <img src="images/floatech-cert-technofair.jpg" width="1600" height="1200" loading="lazy"
+               alt="Certificate of Recognition naming FLOATech Second Runner Up in the Best Design Project Exhibit at TechnoFair 2026.">
+        </a>
+        <figcaption>TechnoFair 2026 certificate</figcaption>
+      </figure>
+      <figure class="cert">
+        <a href="images/floatech-cert-poster.jpg" class="zoom">
+          <img src="images/floatech-cert-poster.jpg" width="1600" height="1200" loading="lazy"
+               alt="Certificate of Recognition for 2nd Best Research Poster at the 2026 CET Research Conference.">
+        </a>
+        <figcaption>CET Research Conference 2026 certificate</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section class="section" id="skills" aria-labelledby="skills-title">
+    <h2 class="section-title" id="skills-title">Skills</h2>
+    <div class="skills">
+      <div class="skill-group">
+        <h3>Networking and field work</h3>
+        <ul>
+          <li>Wi-Fi access point installation and setup</li>
+          <li>Cell site installation support</li>
+          <li>Cable connection and termination</li>
+          <li>CCTV installation</li>
+          <li>Network performance monitoring</li>
+          <li>Site safety procedures (OSH)</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Hardware and embedded</h3>
+        <ul>
+          <li>Hardware troubleshooting</li>
+          <li>Arduino and ESP32 development</li>
+          <li>Sensors and automation</li>
+          <li>Soldering and circuit assembly</li>
+          <li>Solar power systems</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Software and tools</h3>
+        <ul>
+          <li>Microsoft Excel</li>
+          <li>Ookla Insights</li>
+          <li>CellMapper</li>
+          <li>HTML, CSS and JavaScript</li>
+          <li>AI prompting for documentation</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Working with people</h3>
+        <ul>
+          <li>On-site support for non-technical staff</li>
+          <li>Explaining technical issues clearly</li>
+          <li>Accurate data entry and records</li>
+          <li>Working to deadlines in a team</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EDUCATION ================= -->
+  <section class="section" id="education" aria-labelledby="education-title">
+    <h2 class="section-title" id="education-title">Education and recognition</h2>
+
+    <div class="edu">
+      <div class="edu-item">
+        <p class="edu-years">2023 to present</p>
+        <h3>BS Computer Engineering</h3>
+        <p>Holy Cross of Davao College</p>
+        <p class="edu-note">Previously enrolled in BS Electronics Engineering, 2022 to 2023</p>
+      </div>
+      <div class="edu-item">
+        <p class="edu-years">2016 to 2022</p>
+        <h3>Junior and Senior High School</h3>
+        <p>Davao City National High School</p>
+      </div>
+    </div>
+
+    <div class="recognition">
+      <div>
+        <h3 class="mini-title">Awards</h3>
+        <ul class="plain-list">
+          <li><strong>Champion</strong>, Networking Competition, 2025</li>
+          <li><strong>Second Runner Up</strong>, Best Design Project Exhibit, TechnoFair 2026 (FLOATech)</li>
+          <li><strong>2nd Best Research Poster</strong>, CET Research Conference 2026 (FLOATech)</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="mini-title">Training and memberships</h3>
+        <ul class="plain-list">
+          <li>Certificate of Completion, Smart Wireless Engineering Education Program (SWEEP), 2026</li>
           <li>Occupational Safety and Health Orientation</li>
+          <li>Basic Computer Networking Workshop</li>
+          <li>Programming workshops</li>
           <li>Member, Institute of Computer Engineers of the Philippines (ICpEP)</li>
           <li>Participant, 16th CODEE Region XI Engineering Congress</li>
         </ul>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <!-- ============ CONTACT ============ -->
-  <div class="page" id="contact">
-    <section class="section">
-      <p class="section-tag">05 // CONTACT</p>
-      <h2 class="section-title">Connect</h2>
-      <div class="terminal">
-        <div class="terminal-bar"><span>connect.sh</span></div>
-        <div class="terminal-body">
-          <p><span class="prompt">&gt;</span> Who am I?</p>
-          <p class="output">Johnstheward S. Alvarado — Computer Engineer</p>
-          <p><span class="prompt">&gt;</span> Address</p>
-          <p class="output">Block 2 Carmelite Road, Bajada, Buhangin Proper, Davao City, Davao del Sur 8000</p>
-          <p><span class="prompt">&gt;</span> Contact</p>
-          <p class="output">
-            <a href="mailto:johnalvarado.565655@gmail.com">johnalvarado.565655@gmail.com</a>
-            <button class="copy-btn" id="copyBtn" type="button">copy</button>
-          </p>
-          <p class="output"><a href="tel:+639120115350">+63 912 011 5350</a></p>
-          <p><span class="prompt">&gt;</span> <span class="cursor">_</span></p>
-        </div>
-      </div>
-    </section>
-  </div>
+  <!-- ================= CONTACT ================= -->
+  <section class="section contact" id="contact" aria-labelledby="contact-title">
+    <h2 class="section-title" id="contact-title">Let’s talk</h2>
+    <p class="contact-lead">I’m open to network technician, field engineering and technical support roles. The fastest way to reach me is email.</p>
+
+    <div class="contact-email">
+      <a href="mailto:johnalvarado.565655@gmail.com" id="emailLink">johnalvarado.565655@gmail.com</a>
+      <button class="copy-btn" id="copyBtn" type="button">Copy email</button>
+      <span class="copy-status" id="copyStatus" role="status" aria-live="polite"></span>
+    </div>
+
+    <dl class="contact-list">
+      <div><dt>Phone</dt><dd><a href="tel:+639120115350">+63 912 011 5350</a></dd></div>
+      <div><dt>Location</dt><dd>Davao City, Philippines</dd></div>
+      <div><dt>GitHub</dt><dd><a href="https://github.com/JSAlvarado" rel="noopener">github.com/JSAlvarado</a></dd></div>
+    </dl>
+  </section>
 
 </main>
 
 <footer class="footer">
-  <p>Built with HTML, CSS &amp; JS · © <span id="year"></span> Johnstheward S. Alvarado</p>
+  <p>© <span id="year">2026</span> Johnstheward S. Alvarado. Built by hand with HTML, CSS and JavaScript.</p>
 </footer>
 
-<script>
-  const pageIds = ["home", "about", "experience", "project", "education", "contact"];
-  const navLinks = document.getElementById("navLinks");
-  const toggle = document.getElementById("navToggle");
+<!-- Image viewer (opens when a photo is clicked) -->
+<dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close photo">×</button>
+  <img id="lightboxImg" src="" alt="">
+  <p id="lightboxCaption"></p>
+</dialog>
 
-  function showPage() {
-    let id = location.hash.replace("#", "");
-    if (!pageIds.includes(id)) id = "home";
-
-    document.querySelectorAll(".page").forEach(p => p.classList.toggle("active", p.id === id));
-    navLinks.querySelectorAll("a").forEach(a => {
-      const on = a.getAttribute("href") === "#" + id;
-      a.classList.toggle("active", on);
-      if (on) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
-    });
-
-    navLinks.classList.remove("open");
-    toggle.setAttribute("aria-expanded", "false");
-    window.scrollTo(0, 0);
-  }
-
-  window.addEventListener("hashchange", showPage);
-  showPage();
-
-  toggle.addEventListener("click", () => {
-    const open = navLinks.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", open);
-  });
-
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  const copyBtn = document.getElementById("copyBtn");
-  copyBtn.addEventListener("click", () => {
-    navigator.clipboard.writeText("johnalvarado.565655@gmail.com").then(() => {
-      copyBtn.textContent = "copied!";
-      setTimeout(() => (copyBtn.textContent = "copy"), 1500);
-    });
-  });
-</script>
+<script src="script.js"></script>
 </body>
 </html>
